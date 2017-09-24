@@ -17,7 +17,7 @@ $reponse = $bdd->query("SELECT art_titre, art_genre, DATE_FORMAT(art_date, '%d/%
 
 ///////////////////// REQUETE SQL POUR AFFICHER LES COMMENTAIRE DE L'ARTICLE SELECTIONNÉ /////////////////////
 
-$com = $bdd->query("SELECT com_pseudo, com_date as date_format_com , com_content FROM com_commentaires WHERE  art_article_art_id= '$id'");
+$com = $bdd->query("SELECT com_pseudo, DATE_FORMAT(com_date, '%d/%m/%Y à %Hh%i') as date_format_com , com_content FROM com_commentaires WHERE  art_article_art_id= '$id'");
 
 
 
@@ -40,9 +40,11 @@ if (isset($_POST['validFormCom'])) {
 	$commentaire = htmlspecialchars($_POST['commentaire']);
 
 
-	$bdd->query('INSERT INTO com_commentaires (com_pseudo, com_date, com_content, art_article_art_id) VALUES ("'.$pseudo.'", DATE_FORMAT((now()),"%d/%m/%Y %Hh%imin"), "'.$commentaire.'", "'.$id.'")');
-		header('refresh:0');
+	$sql = sprintf('INSERT  INTO com_commentaires(com_pseudo, com_date, com_content, art_article_art_id) 
+		VALUES ("%s", now(), "%s", "%s");', $pseudo, $commentaire, $id);
 
+	$bdd->query($sql);
+	header('refresh:0');
 }
 ?>
 
