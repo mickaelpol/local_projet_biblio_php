@@ -1,5 +1,10 @@
 <?php 
 
+session_start();
+if (!isset($_SESSION['uti_pseudo'])) {
+	header("Location: index.php?p=connectionAdmin");
+}
+
 	// connection a la BDD
 include('./connect/connection.php');
 

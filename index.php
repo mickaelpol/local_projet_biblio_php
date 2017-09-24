@@ -42,6 +42,11 @@ if ($p === 'modComAdmin') {
 if ($p === 'connectionAdmin') {
 	include('page/connectionAdmin.php');
 }
+	
+	// si la variable $p vaut ?p=decoAdmin renvoi vers la page decoAdmin.php
+if ($p === 'decoAdmin') {
+	include('page/decoAdmin.php');
+}
 	// si la varibale $p vaut ?p=article&&A= id de l'article alors renvoi vers la page pageArticle.php avec en include l'article selectionnée
 if 	($p === 'article'&&$_GET['A']){
 	include('page/pageArticle.php');

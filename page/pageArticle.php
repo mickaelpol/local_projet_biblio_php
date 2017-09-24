@@ -15,42 +15,83 @@ $reponse = $bdd->query("SELECT art_titre, art_genre, DATE_FORMAT(art_date, '%d/%
 $com = $bdd->query("SELECT com_pseudo, DATE_FORMAT(com_date, '%d/%m/%Y à %Hh%i') as date_format_com , com_content FROM com_commentaires WHERE  art_article_art_id= '$id'");
 
 //fonction qui permet de gerer si les inputs de pseudo et commentaire sont bien remplis
+// function testInputRemplis($fichier){
+// 	if (empty($_POST['$fichier'])) {
+// 		return "<span class='text-danger'> Pour poster, le champ " .$fichier. " doit être remplis ! <br></span>";
+// 	}
+// }
+
+
+//fonction qui verifie que les inputs soit remplis !
 function testInputRemplis($fichier){
-	if (empty($_POST['$fichier'])) {
-		return "<span class='text-danger'> Pour poster, le champ " .$fichier. " doit être remplis ! <br></span>";
+	if (empty($_POST[$fichier])) {
+		return "<span class='text-danger'>" ."Le champ " .$fichier. " est vide <br>" . "</span>";
 	}
 }
-
 
 if (isset($_POST['validFormCom'])) {
-	$erreurPseudo = "";
-	$erreurCom = "";
-	$message = "";
+	
+	$pseudo = htmlspecialchars($_POST['pseudo']);
+	$commentaire = htmlspecialchars($_POST['commentaire']);
 
+	var_dump($pseudo . " " . $commentaire. " " . $id );
 
-	$erreurPseudo = ": ". testInputRemplis('pseudo');
-	$erreurCom = ": ". testInputRemplis('commentaire');
+	try {
+	     $bdd = new 
+	     //connection a la BDD
+	     PDO('mysql:host=localhost;dbname=mydb;charset=utf8', "root", "admin");
+	   } 
+	   catch (Exception $e) {
+	     //si erreur lance l'affichage de l'erreur et stoppe la suite
+	     die('Erreur: ' .$e->getMessage());
+	   }
 
-	if(empty($erreurPseudo && $erreurCom)) {
+	$sql = sprintf('INSERT INTO com_commentaires(com_pseudo, com_date, com_content, art_article_art_id)
+		VALUES ("'.$pseudo.'", "'.$commentaire.'", "'.$id.'" )');
 
-		// stockage des informations entré dans le formulaire dans des variables avec sécurité d'échappement des caractères html
-		$pseudo = htmlspecialchars($_POST['pseudo']);
-		$com = htmlspecialchars($_POST['commentaire']);
-
-
-		// préparation de la requete 
-		$sql = sprintf("INSERT INTO com_commentaires (com_pseudo, com_date, com_content, art_article_art_id) 
-			VALUES ('%s', '%d', '%s', '%d');", $pseudo, now(), $com, $id);
-
-		// execution de la requête 
-		if ($bdd->exec($sql)) {
-			$message = "<div class='container-fluid text-center'" . "<p><span class='text-success text-uppercase'> commentaire posté </span></p></div>";
-		} 
-		else {
-			$message = "<div class='container-fluid text-center'" . "<p><span class='text-success text-uppercase'> commentaire non envoyé </span></p></div>";
-		}
-	}
+	$bdd->exec($sql);
 }
+
+  // $erreurPseudo = ": " . testInputRemplis('pseudo');
+  // $erreurCom = ": " . testInputRemplis('commentaire');
+
+  // // condition de validations du formulaire 
+  // if ( empty($erreur)) {
+
+  //   try {
+  //     $bdd = new 
+  //     //connection a la BDD
+  //     PDO('mysql:host=localhost;dbname=mydb;charset=utf8', "root", "admin");
+  //   } 
+  //   catch (Exception $e) {
+  //     //si erreur lance l'affichage de l'erreur et stoppe la suite
+  //     die('Erreur: ' .$e->getMessage());
+  //   }
+
+  //   //préparation des valeurs a insérer (inputs) + cryptage du password
+  //   $pseudo = htmlspecialchars($_POST['pseudo']);
+  //   $commentaire = htmlspecialchars($_POST['commentaire']);
+
+
+
+  //   // preparation de la requete 
+  //   $sql = sprintf('INSERT  INTO com_commentaires(com_pseudo, com_content, art_article_art_id)
+  //    VALUES ("'.$pseudo.'",  "'.$commentaire.'", "'.$_GET['A'].'" ');
+
+  //   // 'SELECT Reponse FROM FAC WHERE Question="'.$questionfac.'"'
+
+  //   //execution et verification 
+  //   if ($bdd->exec($sql)) {
+
+  //     $message = "<div class='container-fluid text-center'" . "<p><span class='text-success text-uppercase'> commentaire non posté </span></p>" . "<br>" . "<div class='loader center-block margin-bot'></div>" . "</div>";
+
+  //     // header("refresh:5;url=index.php?p=connexion");
+  //   } 
+  //   else {
+  //     $message = "<div class='container-fluid text-center'" . "<p><span class='text-success text-uppercase'> commentaire posté </span></p>"."</div>";
+  //   }
+  // }
+
 
 ?>
 
@@ -105,18 +146,17 @@ if (isset($_POST['validFormCom'])) {
 			<u><i><h1 class="text-center text-uppercase">Commentaires</h1></i></u>
 			<div class="row">
 
-<!-- ///////////////////////////      POST D'UN COMMENTAIRE  ////////////////////////////////////////////////// -->
+				<!-- ///////////////////////////      POST D'UN COMMENTAIRE  ////////////////////////////////////////////////// -->
 
-				<!--  -->
+
 				<div class="container jumbotron">
 					<form action='<?php $pageActuelle ?>' method="post">
-					<!-- <?php echo($pageActuelle); ?> -->
 						
 						<!-- input pseudo -->
 						<div class="row">
 							<div class="col-xs-3">
 								<div class="form-group">
-									<label for="pseudo"><u><i>Pseudo <?= isset($erreurPseudo) ? $erreurPseudo: "" ?></i></u></label>
+									<label for="pseudo"><u><i>Pseudo </i></u><?= isset($erreurPseudo) ? $erreurPseudo: "" ?></label>
 									<input name="pseudo" class="form-control" type="text" id="pseudo">
 								</div>
 							</div>
@@ -126,7 +166,7 @@ if (isset($_POST['validFormCom'])) {
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="commentaire"><u><i>Ajout un commentaire <?= isset($erreurCom) ? $erreurCom: "" ?></i></u></label>
+									<label for="commentaire"><u><i>Ajout un commentaire </i></u><?= isset($erreurCom) ? $erreurCom: "" ?></label>
 									<textarea name="commentaire" class="form-control" id="commentaire" cols="10" rows="5"></textarea>
 								</div>
 							</div>
@@ -135,10 +175,10 @@ if (isset($_POST['validFormCom'])) {
 						<!-- input envoi du formulaire -->
 						<input name="validFormCom" class="pull-right btn btn-md btn-success" type="submit">
 					</form>
-					<?= isset($message) ? $message : "" ?>
+					<p class="text-center"><?= isset($message) ? $message : "" ?></p>
 				</div>
 
-<!--//////////////////////////////  AFFICHE LES COMMENTAIRES POSTÉ ///////////////////////////////////////////  -->
+				<!--//////////////////////////////  AFFICHE LES COMMENTAIRES POSTÉ ///////////////////////////////////////////  -->
 
 				<?php while($donnees = $com->fetch()) { ?>
 				<div class="col-xs-12">
