@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 // include de la connection a la bdd
 include('./connect/connection.php');
 

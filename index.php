@@ -42,7 +42,7 @@ if ($p === 'modComAdmin') {
 if ($p === 'connectionAdmin') {
 	include('page/connectionAdmin.php');
 }
-	
+
 	// si la variable $p vaut ?p=decoAdmin renvoi vers la page decoAdmin.php
 if ($p === 'decoAdmin') {
 	include('page/decoAdmin.php');
@@ -52,6 +52,20 @@ if 	($p === 'article'&&$_GET['A']){
 	include('page/pageArticle.php');
 }
 
+	// si la varibale $p vaut ?p=supprimer&&S= id de l'article alors renvoi vers la page de suppression de l'article selectionnée
+if  ($p === 'supprimer'&&$_GET['S']) {
+	include('page/suppressionArticle.php');
+}
+
+	// si la varibale $p vaut ?p=ajouterArticle alors renvoi vers la page d'ajout d'un article 
+if ($p === 'ajoutArticle') {
+	include('page/ajoutArt.php');
+}
+
+	// si la varibale $p vaut ?p=reediter&&R= id de l'article alors renvoi vers la page de reedition de l'article selectionnée
+if ($p === 'reediter'&&$_GET['R']) {
+	include('page/reeditionArt.php');
+}
 	// vide la memoire tampon
 $content = ob_get_clean();
 include('page/template/default.php');

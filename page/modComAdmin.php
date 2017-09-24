@@ -7,4 +7,4 @@ if (!isset($_SESSION['uti_pseudo'])) {
 
 ?>
 
-<h1 class="text-center text-uppercase">modération des com</h1>
+<h1 class="text-center text-uppercase page-header">modération des com</h1>
