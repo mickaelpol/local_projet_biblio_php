@@ -1,6 +1,6 @@
 <?php 
 
-include('./connect/connection.php');
+
 
 
 
@@ -10,14 +10,7 @@ if (isset($_POST)) {
 		$password = $_POST['password'];
 
 			//verif du mot de passe 
-		try {
-
-			$bdd = new PDO('mysql:host=localhost;dbname=mydb;charset=utf8', 'root', 'admin');
-
-		} catch (Exception $e) {
-				// en cas d'erreur je l'affiche et je stoppe tout 
-			die('Erreur :' .$e->getMessage());
-		}
+		include('./connect/connection.php');
 
 			// Recherche utilisateur
 		$sql = sprintf("SELECT * FROM uti_utilisateur WHERE uti_pseudo = '%s';", $pseudo);
@@ -28,7 +21,7 @@ if (isset($_POST)) {
 			$_SESSION['uti_pseudo'] = $pseudo;
 			$_SESSION['uti_id'] = $row['uti_id'];
 			header('refresh:5;url=index.php?p=listArtAdmin');
-			$message = "<div class='container-fluid text-center'" . "<p><span class='text-success text-uppercase'> Connection </span></p>" . "<br>" . "<div class='loader center-block margin-bot'></div>" . "</div>";
+			$message = "<div class='container-fluid text-center'" . "<p><span class='text-success text-uppercase'><strong> Connection </strong></span></p>" . "<br>" . "<div class='loader center-block margin-bot'></div>" . "</div>";
 		} else {
 			$message = "<strong class='text-danger'>Identifient incorrect</strong>";
 		}
