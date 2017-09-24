@@ -20,10 +20,15 @@
 
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
+			<?php 
+			if (isset($_SESSION['uti_pseudo'])) { ?>
 			<li><a href="?p=listArtAdmin">Liste article(admin)</a></li>
 			<li><a href="?p=modComAdmin">Modération des com(admin)</a></li>
+			<?php 
+			}
+			?>
 			<li><a href="?p=connectionAdmin"><span class="glyphicon glyphicon-user"></span> Login</a></li>
 			<li><a href="?p=decoAdmin"><span class="glyphicon glyphicon-off"></"></span> <?= isset($_SESSION['uti_pseudo']) ? $_SESSION['uti_pseudo']: "" ?></a></li>
-		</ul>
-	</div>
+	</ul>
+</div>
 </nav>
