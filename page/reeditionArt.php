@@ -43,7 +43,7 @@ if (isset($_POST['valid'])) {
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 jumbotron">
-			<form class="form-group" action='?p=reediter&&R=<?= $id ?>' method="post">
+			<form class="form-group" action='?p=reediter&R=<?= $id ?>' method="post">
 				<?= isset($message) ? $message : "" ?>
 				<div class="col-xs-3">
 					<label class="text-uppercase" for="titre">Titre <br>
@@ -75,7 +75,3 @@ if (isset($_POST['valid'])) {
 }
 $reponse->closeCursor();
 ?>
-
-
-
-<!-- quelqu'un aurait-il une idée de pourquoi dans un value j'arrive pas a afficher le contenu d'un article ? alors que le reste est bien pris encompte -->

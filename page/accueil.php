@@ -44,11 +44,3 @@ session_start();
 		</div>
 	</div>
 </div>
-
-<!-- <div class="container">
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 text-justify">
-			<h1>Bibliothèque média</h1>
-		</div>
-	</div>
-</div> -->

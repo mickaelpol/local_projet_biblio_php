@@ -59,13 +59,13 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 						<td><?= $donnees['date_format_art'] ?></td>
 
 						<!--/////////// AFFICHAGE DU TITRE DE L'ARTICLE ///////////////////////////////////////////-->
-						<td><a href='?p=modCom&&M=<?= $donnees['art_id'] ?>'><?= $donnees['art_titre'] ?></a></td>
+						<td><a href='?p=modCom&M=<?= $donnees['art_id'] ?>'><?= $donnees['art_titre'] ?></a></td>
 
 						<!--//////////// BOUTON DE REEDITION DE L'ARTICLE //////////////////////////////////////////-->
-						<td><a href="?p=reediter&&R=<?= $donnees['art_id'] ?>"><button title="reediter" class="btn btn-md btn-warning" type="submit"><span class="glyphicon glyphicon-cog"></span></button></a></td>
+						<td><a href="?p=reediter&R=<?= $donnees['art_id'] ?>"><button title="reediter" class="btn btn-md btn-warning" type="submit"><span class="glyphicon glyphicon-cog"></span></button></a></td>
 
 						<!--//////////// BOUTON DE SUPPRESSION DE L'ARTICLE ////////////////////////////////////////-->
-						<td><a href="?p=supprimer&&S=<?= $donnees['art_id'] ?>"><button title="supprimer" class="btn btn-md btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+						<td><a href="?p=supprimer&S=<?= $donnees['art_id'] ?>"><button title="supprimer" class="btn btn-md btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a></td>
 						<?php 
 					}
 					$reponse->closeCursor();

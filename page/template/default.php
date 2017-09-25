@@ -22,6 +22,7 @@
 <?php include('footer.php'); ?>
 
 <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="node_modules/list.js/dist/list.js"></script>
 <script type="text/javascript" src="page/js/app.js"></script>
 </body>
 </html>

@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <nav class="navbar navbar-inverse fixed">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -18,9 +22,9 @@
 			}
 			?>
 			
-			<form class="navbar-form navbar-left">
+			<form class="navbar-form navbar-left" action="?p=listArt" method="post" >
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search">
+					<input name="search" type="text" class="form-control" placeholder="Search">
 					<div class="input-group-btn">
 						<button class="btn btn-default" type="submit">
 							<i class="glyphicon glyphicon-search"></i>
@@ -34,7 +38,6 @@
 			<?php 
 			if (isset($_SESSION['uti_pseudo'])) { ?>
 			<li><a href="?p=listArtAdmin">Reedition, Ajout, Suppresion d'article</a></li>
-			<!-- <li><a href="?p=modComAdmin">Modération des com</a></li> -->
 			<?php 
 		}
 		?>
@@ -49,3 +52,4 @@
 </ul>
 </div>
 </nav>
+

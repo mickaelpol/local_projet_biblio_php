@@ -113,14 +113,15 @@ if (isset($_POST['validFormCom'])) {
 
 
 				<div class="container jumbotron">
-					<form action='?p=article&&A=<?= $id ?>' method="post">
+					<form id="form_com" action='?p=article&A=<?= $id ?>' method="post">
 						
 						<!--//////// INPUT PSEUDO ////////////////////////////////////////////////////////////-->
 						<div class="row">
 							<div class="col-xs-3">
-								<div class="form-group">
+								<div class="form-group" id="pseudo_com">
 									<label for="pseudo"><u><i>Pseudo </i></u><?= isset($erreurPseudo) ? $erreurPseudo: "" ?></label>
-									<input name="pseudo" class="form-control" type="text" id="pseudo">
+									<strong id="span"></strong>
+									<input name="pseudo" class="form-control" type="text" id="pseudo_form_com">
 								</div>
 							</div>
 						</div>
@@ -128,9 +129,11 @@ if (isset($_POST['validFormCom'])) {
 						<!--//////// INPUT COMMENTAIRE /////////////////////////////////////////////////////////-->
 						<div class="row">
 							<div class="col-xs-12">
-								<div class="form-group">
+								<div class="form-group" id="commentaire_com">
 									<label for="commentaire"><u><i>Ajout un commentaire </i></u><?= isset($erreurCom) ? $erreurCom: "" ?></label>
-									<textarea name="commentaire" class="form-control" id="commentaire" cols="10" rows="5"></textarea>
+
+									<strong id="span2"></strong>
+									<textarea name="commentaire" class="form-control" id="commentaire_form_com" cols="10" rows="5"></textarea>
 								</div>
 							</div>
 						</div>

@@ -47,7 +47,7 @@ $reponse->closeCursor();
 				<?= $donnees['com_content'] ?>
 			</p>
 		</div>
-		<a href="?p=suppression&&com	=<?= $donnees['com_id'] ?>"><button title="supprimer" class="btn btn-md btn-danger"><span class="glyphicon glyphicon-remove"> Supprimer</span></button></a>
+		<a href="?p=suppression&com=<?= $donnees['com_id'] ?>"><button title="supprimer" class="btn btn-md btn-danger"><span class="glyphicon glyphicon-remove"> Supprimer</span></button></a>
 		<?php }
 		$com->closeCursor();
 		?>
