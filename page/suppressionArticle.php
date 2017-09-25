@@ -10,7 +10,7 @@ $reponse = $bdd->query("SELECT art_id FROM art_article WHERE
 
 $delete = $bdd->query("DELETE FROM art_article WHERE art_id='".$id."' ");
 
-$messagesup = '<h1 class="text-center text-uppercase">L\'article '.$id.' à bien été supprimer</h1>';
+$messagesup = '<p class="text-center text-uppercase">L\'article '.$id.' à bien été supprimer cliquez <a href="?p=listArtAdmin" >ici pour être re diriger directement</a></p>';
 
 header('refresh:5;url=index.php?p=listArtAdmin');
 

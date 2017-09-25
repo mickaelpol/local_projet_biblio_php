@@ -53,6 +53,12 @@ if (isset($_POST['validFormCom'])) {
 
 
 <div class="container">
+	<div class="row">
+		<div class="col-xs-4">
+			<button class="btn btn-md btn-default" type="button" onClick="document.location.href = document.referrer"><span class="glyphicon glyphicon-arrow-left"></span><strong> Back</strong></button>
+		</div>
+	</div>
+	<br>
 	<div class="jumbotron">
 
 		<?php 

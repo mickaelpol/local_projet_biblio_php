@@ -24,7 +24,7 @@ if (isset($_POST['valid'])) {
 	$bdd->exec($sql);
 
 	$message = '<div class="row"><p class="text-success text-center">article modifié avec succès</p></div>';
-	header('refresh:5');
+	header('refresh:3;url=?p=listArtAdmin');
 }
 
 
@@ -62,7 +62,7 @@ if (isset($_POST['valid'])) {
 				</div>
 				<div class="col-xs-12">
 					<label class="text-uppercase" for="contenu">Contenu de l'article <br>
-						<textarea placeholder="<?= $donnees['art_content'] ?>" class="form-control" name="contenu" id="" cols="200" rows="10"></textarea>
+						<textarea class="form-control" name="contenu" id="" cols="200" rows="10"><?= $donnees['art_content'] ?></textarea>
 					</label>
 
 					<input class="btn btn-md btn-success pull-right" type="submit" name="valid">

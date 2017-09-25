@@ -57,6 +57,10 @@ if  ($p === 'supprimer'&&$_GET['S']) {
 	include('page/suppressionArticle.php');
 }
 
+if ($p === 'suppression'&&$_GET['com']) {
+	include('page/supprimerCom.php');
+}
+
 	// si la varibale $p vaut ?p=ajouterArticle alors renvoi vers la page d'ajout d'un article 
 if ($p === 'ajoutArticle') {
 	include('page/ajoutArt.php');

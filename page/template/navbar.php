@@ -34,7 +34,7 @@
 			<?php 
 			if (isset($_SESSION['uti_pseudo'])) { ?>
 			<li><a href="?p=listArtAdmin">Reedition, Ajout, Suppresion d'article</a></li>
-			<li><a href="?p=modComAdmin">Modération des com</a></li>
+			<!-- <li><a href="?p=modComAdmin">Modération des com</a></li> -->
 			<?php 
 		}
 		?>

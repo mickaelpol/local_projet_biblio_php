@@ -22,6 +22,12 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 
 <div class="container">
 	<div class="row">
+		<div class="col-xs-4 col-xs-offset-1">
+			<button class="btn btn-md btn-default" type="button" onClick="document.location.href = document.referrer"><span class="glyphicon glyphicon-arrow-left"></span><strong> Back</strong></button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1">
 			<table class="table table-bordered table-striped table-hover">
 				

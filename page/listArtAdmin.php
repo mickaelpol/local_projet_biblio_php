@@ -5,17 +5,17 @@ if (!isset($_SESSION['uti_pseudo'])) {
 	header("Location: index.php?p=connectionAdmin");
 }
 
-	// connection a la BDD
+	///////////////////////////////// CONNECTION A LA BDD ////////////////////////////////////////////
 include('./connect/connection.php');
 
-// préparation de la requete sql qui va afficher l'article avec son id, son heure, sa date, son titre et son genre
+//// PRÉPARATION DE LA REQUETE SQL QUI VA AFFICHER L'ARTICLE AVEC SON ID, SON HEURE, SA DATE, SON TITRE ET SON GENRE//
 $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as date_format_art, art_id, art_titre, art_genre FROM art_article');
 
 
 ?>
 
 
-<!-- début du contenu du tableau des articles coté admin -->
+<!--/////////////////////// DÉBUT DU CONTENU DU TABLEAU DES ARTICLES COTÉ ADMIN /////////////////////////////-->
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 bg-inverse">
@@ -25,6 +25,12 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 </div>
 
 <div class="container">
+	<div class="row">
+		<div class="col-xs-4 col-xs-offset-1">
+			<button class="btn btn-md btn-default" type="button" onClick="document.location.href = document.referrer"><span class="glyphicon glyphicon-arrow-left"></span><strong> Back</strong></button>
+		</div>
+	</div>
+	<br>
 	<div class="row">
 		<div class="col-xs-4 col-xs-offset-1">
 			<p><a href="?p=ajoutArticle"><button title="Ajouter" class="btn btn-md btn-success" type="submit"><span class="glyphicon glyphicon-plus"></span></button></a><strong> Ajouter un article</strong></p>
@@ -45,17 +51,20 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 					</tr>
 				</thead>
 				<tbody class="text-center list-inline">
-					<!-- début de l'affichage en requete sql et php -->
+					<!--////////////// DÉBUT DE L'AFFICHAGE EN REQUETE SQL ET PHP /////////////////////////////////-->
 					<?php 
 					while ($donnees = $reponse->fetch()){ ?>
 					<tr>
-						<!-- affichage de la date ou l'articlé a été posté -->
+						<!--/////////// AFFICHAGE DE LA DATE OU L'ARTICLÉ A ÉTÉ POSTÉ /////////////////////////////-->
 						<td><?= $donnees['date_format_art'] ?></td>
-						<!-- affichage du titre de l'article -->
+
+						<!--/////////// AFFICHAGE DU TITRE DE L'ARTICLE ///////////////////////////////////////////-->
 						<td><a href='?p=modCom&&M=<?= $donnees['art_id'] ?>'><?= $donnees['art_titre'] ?></a></td>
-						<!-- bouton de reedition de l'article -->
+
+						<!--//////////// BOUTON DE REEDITION DE L'ARTICLE //////////////////////////////////////////-->
 						<td><a href="?p=reediter&&R=<?= $donnees['art_id'] ?>"><button title="reediter" class="btn btn-md btn-warning" type="submit"><span class="glyphicon glyphicon-cog"></span></button></a></td>
-						<!-- bouton de suppression de l'article -->
+
+						<!--//////////// BOUTON DE SUPPRESSION DE L'ARTICLE ////////////////////////////////////////-->
 						<td><a href="?p=supprimer&&S=<?= $donnees['art_id'] ?>"><button title="supprimer" class="btn btn-md btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a></td>
 						<?php 
 					}

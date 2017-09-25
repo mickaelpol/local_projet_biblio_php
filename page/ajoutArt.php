@@ -15,11 +15,10 @@ if (isset($_POST['valid'])) {
 		VALUES ("%s", "%s", "%s", now(), "%s");', $titre, $auteur, $genre, $contenu);
 
 	$bdd->query($sql);
-	$message = '<div class="row"><p class="text-success text-center">article ajouté avec succès</p></div>';
-	header('refresh:5');
+	$message = '<div class="row"><p class="text-success text-center">article ajouté avec succès cliquez <a href="?p=listArtAdmin" >ici pour être re diriger directement</a></p></div>';
+	header('refresh:5;url=?p=listArtAdmin');
 }
 
-	
 
 ?>
 
