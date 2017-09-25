@@ -5,7 +5,7 @@ $id = $_GET['R'];
 
 include('./connect/connection.php');
 
-$reponse = $bdd->query("SELECT art_titre, art_genre, art_content, art_auteur FROM art_article WHERE 
+$reponse = $bdd->query("SELECT art_titre, art_auteur, art_genre, art_content  FROM art_article WHERE 
 	art_id='".$id."' ");
 
 
@@ -17,11 +17,11 @@ if (isset($_POST['valid'])) {
 	$auteur = htmlspecialchars($_POST['auteur']);
 	$genre = htmlspecialchars($_POST['genre']);
 	$contenu = htmlspecialchars($_POST['contenu']);
+	$modifTemp = htmlspecialchars("modifié le :");
 
-	$sql = $bdd->query("UPDATE art_article SET art_titre='".$titre."' , art_auteur='".$auteur."', art_genre='".$genre."', art_content='".$contenu."' WHERE art_id='".$id."'");
+	$sql = $bdd->exec("UPDATE art_article SET art_titre='".$titre."' , art_auteur='".$auteur."', art_genre='".$genre."', art_date=now(), art_content='".$contenu."' WHERE art_id='".$id."'");
 
-	$bdd->query($sql);
-
+	$bdd->exec($sql);
 
 	$message = '<div class="row"><p class="text-success text-center">article modifié avec succès</p></div>';
 	header('refresh:5');
@@ -51,17 +51,17 @@ if (isset($_POST['valid'])) {
 					</label>
 				</div>
 				<div class="col-xs-3 col-xs-offset-1">
-					<label class="text-uppercase" for="titre">Auteur <br>
+					<label class="text-uppercase" for="auteur">Auteur <br>
 						<input value="<?= $donnees['art_auteur'] ?>" name="auteur" class="form-control" type="text">
 					</label>
 				</div>
 				<div class="col-xs-3 col-xs-offset-1">
-					<label class="text-uppercase" for="titre">Genre <br>
+					<label class="text-uppercase" for="genre">Genre <br>
 						<input value="<?= $donnees['art_genre'] ?>" name="genre" class="form-control" type="text">
 					</label>
 				</div>
 				<div class="col-xs-12">
-					<label class="text-uppercase" for="titre">Contenu de l'article <br>
+					<label class="text-uppercase" for="contenu">Contenu de l'article <br>
 						<textarea placeholder="<?= $donnees['art_content'] ?>" class="form-control" name="contenu" id="" cols="200" rows="10"></textarea>
 					</label>
 
@@ -71,8 +71,9 @@ if (isset($_POST['valid'])) {
 		</div>
 	</div>
 </div>
-	<?php
+<?php
 }
+$reponse->closeCursor();
 ?>
 
 

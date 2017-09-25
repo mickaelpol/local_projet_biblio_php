@@ -52,7 +52,7 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 						<!-- affichage de la date ou l'articlé a été posté -->
 						<td><?= $donnees['date_format_art'] ?></td>
 						<!-- affichage du titre de l'article -->
-						<td><a href='?p=article&&A=<?= $donnees['art_id'] ?>'><?= $donnees['art_titre'] ?></a></td>
+						<td><a href='?p=modCom&&M=<?= $donnees['art_id'] ?>'><?= $donnees['art_titre'] ?></a></td>
 						<!-- bouton de reedition de l'article -->
 						<td><a href="?p=reediter&&R=<?= $donnees['art_id'] ?>"><button title="reediter" class="btn btn-md btn-warning" type="submit"><span class="glyphicon glyphicon-cog"></span></button></a></td>
 						<!-- bouton de suppression de l'article -->

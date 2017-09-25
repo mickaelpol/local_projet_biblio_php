@@ -47,3 +47,34 @@ Groupe Aurelie, Leo, Mickael
 - Doc sur markdown 
 - Doc sur un possible transfer de mysql vers postresql
 - envoi des livrables 
+
+
+**Fin de troisième journée :**
+
+- layout terminé 
+- Ajout des pages visible en admin et non visible en visiteur
+- ajout des page de gestion admin (ajout/suppression/reedition de page)
+- page de modération des commentaires (en cours)
+
+-----------------------------------------------------------------------
+
+>**Quatrième journée :**
+
+- ajout des verification coté client si les inputs de connection admin sont remplis
+- ajout des verifications coté client si les inputs de post d'un commentaire sont bien remplis
+- finalisation du site en local 
+
+**Fin de la quatrième journée :**
+
+- site en local fini 
+- les requetes d'affichage sont fonctionnelle
+- les requetes d'ajout de suppression de reedition coté admin sont fonctionelle
+
+-------------------------------------------------------------------------
+
+>**Cinquième journée :**
+
+- ajout de la page modération des commentaires
+- (en cours) requete de modération "suppression d'un commentaire" coté admin
+- (en cours) requete de trie des articles par "date de parution"/"par ordre alphabetique"/"ordre décroissant alphabétique"
+- (en cours) requete de la barre de recherche du site 
