@@ -92,7 +92,7 @@ if (isset($_POST['validFormCom'])) {
 
 		<!--////////////////////////   BOUTON DE TÉLÉCHARGEMENT DE L'ARTICLE /////////////////////////////// -->
 
-		<p><a class="btn btn-primary btn-lg" href="#" role="button">Download</a></p>
+		<p><input type="button" value="Télécharger" class="btn btn-lg btn-primary" onclick="window.location='http://super/fichier.zip';"></p>
 		<?php }
 		$reponse->closeCursor();
 		?>
@@ -174,3 +174,6 @@ if (isset($_POST['validFormCom'])) {
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="page/js/commentaire.js"></script>

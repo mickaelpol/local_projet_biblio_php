@@ -8,9 +8,11 @@ include('./connect/connection.php');
 $test = "";
 
 if(!empty($_GET['tri'])){
-	$test = " order by " .$_GET['tri'];
-	// SELECT * FROM art_article ORDER BY art_date DESC;
+	if ($_GET['tri']) {
+		$test = " order by " .$_GET['tri']. "";
+	} 	
 }
+
 $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as date_format_art, art_id, art_titre, art_auteur, art_genre FROM art_article'.$test);
 
 ?>
@@ -33,34 +35,27 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1">
 
-			<div id="liste">
+			<div id="idlist">
 				<table class="table table-bordered table-striped table-hover">
 
 					<!-- titre de chacune des colonnes -->
-					<thead>
-						<tr>
-							<th class="text-center text-uppercase"><a href="?p=listArt&tri=art_date">Date</a></th>
-							<th class="text-center text-uppercase"><a href="?p=listArt&tri=art_titre">Titre de l'article</a></th>
-							<th class="text-center text-uppercase"><a href="?p=listArt&tri=art_auteur">Auteur</a></th>
-							<th class="text-center text-uppercase"><a href="?p=listArt&tri=art_genre">Genre</a></th>
-						</tr>
-					</thead>
+					<thead id="entete"></thead>
 
 					<!-- requete sql qui affiche la valeur de chacun des colonnes du tableau (date/titre/genre) -->
-					<?php 
-					while ($donnees = $reponse->fetch()) { ?>
-					<tbody class="text-center list">
-						<tr class="name">
-							<td><?= $donnees['date_format_art']; ?></td>
-							<td><a href='?p=article&A=<?= $donnees['art_id'] ?>'><?= $donnees['art_titre'] ?></a></td>
-							<td><?= $donnees['art_auteur'] ?></td>
-							<td><?= $donnees['art_genre'] ?></td>
-						</tr>
-						
+					
+					<tbody id="tableau" class="text-center list">
+
+						<?php foreach ($reponse as $donnees): ?>
+							<tr class="name">
+								<td><?= $donnees['date_format_art'] ?></td>
+								<td><a href='?p=article&A=<?= $donnees['art_id'] ?>'><?= $donnees['art_titre'] ?></a></td>
+								<td><?= $donnees['art_auteur'] ?></td>
+								<td><?= $donnees['art_genre'] ?></td>
+							</tr>
+						<?php endforeach; ?>
+
 					</tbody>
-					<?php }
-					$reponse->closeCursor();
-					?>
+
 				</table>
 				<div class="text-center">
 					<ul class="pagination"></ul>
@@ -69,3 +64,7 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="node_modules/list.js/dist/list.js" ></script>
+<script type="text/javascript" src="page/js/paginate.js"></script>

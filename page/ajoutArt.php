@@ -30,11 +30,95 @@ if (isset($_POST['valid'])) {
 	</div>
 </div>
 
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3 class="text-center jumbotron">Le Markdown</h3>
+
+			<table class="table table-striped table-bordered table-hover">
+				<thead><tr><th>aide au markdown</th></tr></thead>
+				<tbody>
+					<tr class="text-center">
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+					</tr>
+
+					<tr class="text-center">
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+					</tr>
+					<tr class="text-center">
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+					</tr>
+
+					<tr class="text-center">
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+					</tr>
+
+					<tr class="text-center">
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+						<td><strong>**titre**</strong><br>titre en h1</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- <div class="col-xs-4 text-center">
+				<ul class="list-unstyled">
+					<li><strong>**titre**</strong><br>ecrira en h1 le contenu</li><br>
+					<li><strong>**titre**</strong><br>ecrira</li><br>
+					<li><strong>**titre**</strong><br>ecrira</li><br>
+					<li><strong>**titre**</strong><br>ecrira</li><br>
+					<li><strong>**titre**</strong><br>ecrira</li><br>
+					<li><strong>**titre**</strong><br>ecrira</li><br>
+				</ul>
+			</div>
+
+			<div class="col-xs-4 text-center">
+				<ul class="list-unstyled">
+					<li><strong>**titre**</strong><br>ecrira</li>
+					<li><strong>**titre**</strong><br>ecrira</li>
+					<li><strong>**titre**</strong><br>ecrira</li>
+					<li><strong>**titre**</strong><br>ecrira</li>
+					<li><strong>**titre**</strong><br>ecrira</li>
+					<li><strong>**titre**</strong><br>ecrira</li>
+				</ul>
+			</div>
+
+			<div class="col-xs-4 text-center">
+				<ul class="list-unstyled">
+					<li><strong>**titre**</strong><br>ecrira</li>
+					<li><strong>**titre**</strong><br>ecrira</li>
+					<li><strong>**titre**</strong><br>ecrira</li>
+					<li><strong>**titre**</strong><br>ecrira</li>
+					<li><strong>**titre**</strong><br>ecrira</li>
+					<li><strong>**titre**</strong><br>ecrira</li>
+				</ul>
+			</div> -->
+		</div>
+	</div>
+</div>
+
 
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 jumbotron">
-		<form class="form-group" method="post" action="?p=ajoutArticle">
+			<form class="form-group" method="post" action="?p=ajoutArticle">
 				<?= isset($message) ? $message : "" ?>
 				<div class="col-xs-3">
 					<label class="text-uppercase" for="titre">Titre <br>

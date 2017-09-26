@@ -34,7 +34,7 @@ if (isset($_POST)) {
 <div class="container">
 	<div class="row">
 		<div class="col-xs-5 col-xs-offset-3 jumbotron">
-			<form action="?p=connectionAdmin" method="POST" id='form'>
+			<form action="?p=connectionAdmin" method="post" id='form'>
 				<div class="form-group text-center" id="test">
 					<label class="control-label" for="pseudo">Pseudonyme <?= isset($erreurPseudo) ? $erreurPseudo: "" ?></label>
 					<input name="pseudo" type="text" class="champ form-control" id="pseudo">
@@ -49,3 +49,6 @@ if (isset($_POST)) {
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="page/js/loginAdmin.js"></script>
