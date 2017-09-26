@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <nav class="navbar navbar-inverse fixed">
 	<div class="container-fluid">
 		<div class="navbar-header">

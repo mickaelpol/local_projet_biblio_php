@@ -14,7 +14,7 @@ if (isset($_POST['valid'])) {
 	$sql = sprintf('INSERT  INTO art_article(art_titre, art_auteur, art_genre, art_date, art_content) 
 		VALUES ("%s", "%s", "%s", now(), "%s");', $titre, $auteur, $genre, $contenu);
 
-	$bdd->query($sql);
+	$ajouter = $bdd->query($sql);
 	$message = '<div class="row"><p class="text-success text-center">article ajouté avec succès cliquez <a href="?p=listArtAdmin" >ici pour être re diriger directement</a></p></div>';
 	header('refresh:5;url=?p=listArtAdmin');
 }
@@ -27,6 +27,7 @@ if (isset($_POST['valid'])) {
 		<div class="col-xs-12">
 			<h1 class="text-center text-uppercase page-header">Ajouter un article</h1>
 		</div>
+		<?= isset($message) ? $message : "" ?>
 	</div>
 </div>
 
@@ -78,38 +79,6 @@ if (isset($_POST['valid'])) {
 					</tr>
 				</tbody>
 			</table>
-			<!-- <div class="col-xs-4 text-center">
-				<ul class="list-unstyled">
-					<li><strong>**titre**</strong><br>ecrira en h1 le contenu</li><br>
-					<li><strong>**titre**</strong><br>ecrira</li><br>
-					<li><strong>**titre**</strong><br>ecrira</li><br>
-					<li><strong>**titre**</strong><br>ecrira</li><br>
-					<li><strong>**titre**</strong><br>ecrira</li><br>
-					<li><strong>**titre**</strong><br>ecrira</li><br>
-				</ul>
-			</div>
-
-			<div class="col-xs-4 text-center">
-				<ul class="list-unstyled">
-					<li><strong>**titre**</strong><br>ecrira</li>
-					<li><strong>**titre**</strong><br>ecrira</li>
-					<li><strong>**titre**</strong><br>ecrira</li>
-					<li><strong>**titre**</strong><br>ecrira</li>
-					<li><strong>**titre**</strong><br>ecrira</li>
-					<li><strong>**titre**</strong><br>ecrira</li>
-				</ul>
-			</div>
-
-			<div class="col-xs-4 text-center">
-				<ul class="list-unstyled">
-					<li><strong>**titre**</strong><br>ecrira</li>
-					<li><strong>**titre**</strong><br>ecrira</li>
-					<li><strong>**titre**</strong><br>ecrira</li>
-					<li><strong>**titre**</strong><br>ecrira</li>
-					<li><strong>**titre**</strong><br>ecrira</li>
-					<li><strong>**titre**</strong><br>ecrira</li>
-				</ul>
-			</div> -->
 		</div>
 	</div>
 </div>
@@ -119,7 +88,6 @@ if (isset($_POST['valid'])) {
 	<div class="row">
 		<div class="col-xs-12 jumbotron">
 			<form class="form-group" method="post" action="?p=ajoutArticle">
-				<?= isset($message) ? $message : "" ?>
 				<div class="col-xs-3">
 					<label class="text-uppercase" for="titre">Titre <br>
 						<input name="titre" class="form-control" type="text">

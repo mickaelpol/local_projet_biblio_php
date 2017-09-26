@@ -45,7 +45,7 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 				<thead>
 					<tr>
 						<th class="text-center text-uppercase">Date</th>
-						<th class="text-center text-uppercase">Titre de l'article</th>
+						<th class="text-center text-uppercase">Editer un commentaire de l'article</th>
 						<th class="text-center text-uppercase">Reediter</th>
 						<th class="text-center text-uppercase">Supprimer</th>
 					</tr>

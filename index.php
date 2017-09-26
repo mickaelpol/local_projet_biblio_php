@@ -75,6 +75,10 @@ if ($p === 'reediter'&&$_GET['R']) {
 if ($p === 'modCom'&&$_GET['M']) {
 	include('page/modComAdmin.php');
 }
+
+// if ($p === 'listArt'&&$_GET['tri']&&$_GET['search']) {
+// 	include('page/listArt.php');
+// }
 	// vide la memoire tampon
 $content = ob_get_clean();
 include('page/template/default.php');
