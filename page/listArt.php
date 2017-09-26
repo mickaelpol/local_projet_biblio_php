@@ -6,16 +6,11 @@ session_start();
 include('./connect/connection.php');
 
 $tri = "";
-$search = "";
-
-
 if(!empty($_GET['tri'])){
 
 	$tri = " order by " .$_GET['tri'];
 }
-if (!empty($_POST['search'])) {
-	$search = "%". $search . "%";
-}
+
 
 $sql = 'SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as date_format_art, art_id, art_titre, art_auteur, art_genre 
 	FROM art_article'.$tri;

@@ -37,8 +37,8 @@ if (isset($_POST['validFormCom'])) {
 	$erreur = "";
 	$message = "";
 
-	$pseudo = htmlspecialchars($_POST['pseudo']);
-	$commentaire = htmlspecialchars($_POST['commentaire']);
+	$pseudo = htmlspecialchars($_POST['pseudo'], ENT_QUOTES);
+	$commentaire = htmlspecialchars($_POST['commentaire'], ENT_QUOTES);
 
 
 	$sql = sprintf('INSERT  INTO com_commentaires(com_pseudo, com_date, com_content, art_article_art_id) 
@@ -69,10 +69,11 @@ if (isset($_POST['validFormCom'])) {
 		<u><i><h1 class="text-capitalize page-header"><?= $donnees['art_titre'] ?></h1></i></u>
 
 		<!--////////////////////////   CONTENU DE L'ARTICLE /////////////////////////////////////////////// -->
-
-		<p class="text-justify">
-			<strong><?= $donnees['art_content']; ?></strong>
-		</p> <br>
+		<div id="hellomark">
+			<p class="text-justify">
+				<?= $donnees['art_content']; ?>
+			</p> <br>
+		</div>
 
 		<!--////////////////////////   GENRE DE L'ARTICLE ///////////////////////////////////////////////// -->
 		<br>
@@ -176,4 +177,6 @@ if (isset($_POST['validFormCom'])) {
 </div>
 
 <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="node_modules/markdown/lib/markdown.js"></script>
 <script type="text/javascript" src="page/js/commentaire.js"></script>
+<script type="text/javascript" src="page/js/markdown_test.js"></script>

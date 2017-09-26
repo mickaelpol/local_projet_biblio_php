@@ -7,7 +7,7 @@ include('./connect/connection.php');
 $id = $_GET['M'];
 
 $reponse = $bdd->query("SELECT art_id  FROM art_article WHERE 
-	art_id='".$id."' ");
+	art_id='".$id."'");
 
 $com = $bdd->query("SELECT com_pseudo, DATE_FORMAT(com_date, '%d/%m/%Y à %Hh%i') as date_format_com , com_content, com_id FROM com_commentaires WHERE  art_article_art_id= '$id'");
 
@@ -47,7 +47,7 @@ $reponse->closeCursor();
 				<?= $donnees['com_content'] ?>
 			</p>
 		</div>
-		<a href="?p=suppression&com=<?= $donnees['com_id'] ?>"><button title="supprimer" class="btn btn-md btn-danger"><span class="glyphicon glyphicon-remove"> Supprimer</span></button></a>
+		<a href="?p=suppression&com=<?= $donnees['com_id'] ?>"><button title="supprimer" class="btn btn-md btn-danger"><span class="glyphicon glyphicon-remove"></span> <strong>Supprimer</strong></button></a>
 		<?php }
 		$com->closeCursor();
 		?>

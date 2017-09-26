@@ -14,7 +14,9 @@ if (isset($_POST)) {
 
 			// Recherche utilisateur
 		$sql = sprintf("SELECT * FROM uti_utilisateur WHERE uti_pseudo = '%s';", $pseudo);
+		
 		$reponse = $bdd->query($sql);
+		
 		$row = $reponse->fetch();
 		if ($password === $row['uti_password']) {
 			session_start();

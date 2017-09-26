@@ -41,38 +41,46 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3 col-sm-10 col-sm-offset-1">
-			<table class="table table-bordered table-striped table-hover">
-				<thead>
-					<tr>
-						<th class="text-center text-uppercase">Date</th>
-						<th class="text-center text-uppercase">Editer un commentaire de l'article</th>
-						<th class="text-center text-uppercase">Reediter</th>
-						<th class="text-center text-uppercase">Supprimer</th>
-					</tr>
-				</thead>
-				<tbody class="text-center list-inline">
-					<!--////////////// DÉBUT DE L'AFFICHAGE EN REQUETE SQL ET PHP /////////////////////////////////-->
-					<?php 
-					while ($donnees = $reponse->fetch()){ ?>
-					<tr>
-						<!--/////////// AFFICHAGE DE LA DATE OU L'ARTICLÉ A ÉTÉ POSTÉ /////////////////////////////-->
-						<td><?= $donnees['date_format_art'] ?></td>
-
-						<!--/////////// AFFICHAGE DU TITRE DE L'ARTICLE ///////////////////////////////////////////-->
-						<td><a href='?p=modCom&M=<?= $donnees['art_id'] ?>'><?= $donnees['art_titre'] ?></a></td>
-
-						<!--//////////// BOUTON DE REEDITION DE L'ARTICLE //////////////////////////////////////////-->
-						<td><a href="?p=reediter&R=<?= $donnees['art_id'] ?>"><button title="reediter" class="btn btn-md btn-warning" type="submit"><span class="glyphicon glyphicon-cog"></span></button></a></td>
-
-						<!--//////////// BOUTON DE SUPPRESSION DE L'ARTICLE ////////////////////////////////////////-->
-						<td><a href="?p=supprimer&S=<?= $donnees['art_id'] ?>"><button title="supprimer" class="btn btn-md btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+			<div id="idlist">
+				<table class="table table-bordered table-striped table-hover">
+					<thead id="entete">
+						<tr>
+							<th class="text-center text-uppercase">Date</th>
+							<th class="text-center text-uppercase">Moderer un commentaire de l'article</th>
+							<th class="text-center text-uppercase">Reediter</th>
+							<th class="text-center text-uppercase">Supprimer</th>
+						</tr>
+					</thead>
+					<tbody id="tableau" class="text-center list-inline list">
+						<!--////////////// DÉBUT DE L'AFFICHAGE EN REQUETE SQL ET PHP /////////////////////////////////-->
 						<?php 
-					}
-					$reponse->closeCursor();
-					?>
-				</tr>
-			</tbody>
-		</table>
+						while ($donnees = $reponse->fetch()){ ?>
+						<tr class="name">
+							<!--/////////// AFFICHAGE DE LA DATE OU L'ARTICLÉ A ÉTÉ POSTÉ /////////////////////////////-->
+							<td><?= $donnees['date_format_art'] ?></td>
+
+							<!--/////////// AFFICHAGE DU TITRE DE L'ARTICLE ///////////////////////////////////////////-->
+							<td><a href='?p=modCom&M=<?= $donnees['art_id'] ?>'><?= $donnees['art_titre'] ?></a></td>
+
+							<!--//////////// BOUTON DE REEDITION DE L'ARTICLE //////////////////////////////////////////-->
+							<td><a href="?p=reediter&R=<?= $donnees['art_id'] ?>"><button title="reediter" class="btn btn-md btn-warning" type="submit"><span class="glyphicon glyphicon-cog"></span></button></a></td>
+
+							<!--//////////// BOUTON DE SUPPRESSION DE L'ARTICLE ////////////////////////////////////////-->
+							<td><a href="?p=supprimer&S=<?= $donnees['art_id'] ?>"><button title="supprimer" class="btn btn-md btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+						</tr>
+						<?php }
+						$reponse->closeCursor();
+						?>
+					</tbody>
+				</table>
+				<div class="text-center">
+					<ul class="pagination"></ul>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-</div>
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="node_modules/list.js/dist/list.js" ></script>
+<script type="text/javascript" src="page/js/paginate.js"></script>
