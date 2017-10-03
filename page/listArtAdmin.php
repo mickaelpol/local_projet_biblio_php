@@ -41,9 +41,12 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3 col-sm-10 col-sm-offset-1">
-			<div id="idlist">
+			<div id="idlistAdmin">
+			<div class="text-center">
+					<ul class="pagination"></ul>
+				</div>
 				<table class="table table-bordered table-striped table-hover">
-					<thead id="entete">
+					<thead id="enteteAdmin">
 						<tr>
 							<th class="text-center text-uppercase">Date</th>
 							<th class="text-center text-uppercase">Moderer un commentaire de l'article</th>
@@ -51,11 +54,11 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 							<th class="text-center text-uppercase">Supprimer</th>
 						</tr>
 					</thead>
-					<tbody id="tableau" class="text-center list-inline list">
+					<tbody id="tableauAdmin" class="text-center list-inline list">
 						<!--////////////// DÉBUT DE L'AFFICHAGE EN REQUETE SQL ET PHP /////////////////////////////////-->
 						<?php 
 						while ($donnees = $reponse->fetch()){ ?>
-						<tr class="name">
+						<tr class="nameAdmin">
 							<!--/////////// AFFICHAGE DE LA DATE OU L'ARTICLÉ A ÉTÉ POSTÉ /////////////////////////////-->
 							<td><?= $donnees['date_format_art'] ?></td>
 
@@ -73,9 +76,6 @@ $reponse = $bdd->query('SELECT DATE_FORMAT(art_date, "%d/%m/%Y à %Hh%i") as dat
 						?>
 					</tbody>
 				</table>
-				<div class="text-center">
-					<ul class="pagination"></ul>
-				</div>
 			</div>
 		</div>
 	</div>

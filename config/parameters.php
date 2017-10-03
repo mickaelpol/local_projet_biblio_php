@@ -1,8 +1,8 @@
 <?php 
 
-	$server = 'localhost';
+	$serverdb = 'localhost';
 	$dbname = 'mydb';
-	$user = 'root';
-	$password = 'admin';
+	$userdb = 'root';
+	$passworddb = 'admin';
 
 ?>

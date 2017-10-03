@@ -6,7 +6,7 @@ include('./config/parameters.php');
 // connection a la BDD 
 try {
 
-	$bdd = new PDO('mysql:host='.$server.';dbname=' .$dbname. ';charset=utf8', $user, $password);
+	$bdd = new PDO('mysql:host='.$serverdb.';dbname=' .$dbname. ';charset=utf8', $userdb, $passworddb);
 
 } catch (Exception $e) {
 

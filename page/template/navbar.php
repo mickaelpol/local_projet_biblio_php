@@ -40,7 +40,7 @@
 
 		<?php 
 		if (!isset($_SESSION['uti_pseudo'])) { ?>
-		<li><a href="?p=connectionAdmin"><span class="glyphicon glyphicon-user"></span> Login</a></li> -->
+		<li><a href="?p=connectionAdmin"><span class="glyphicon glyphicon-user"></span> Login</a></li>
 		<?php 
 	}
 	?>
